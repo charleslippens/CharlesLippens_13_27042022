@@ -11,7 +11,7 @@ Identification des besoins et des sujets auxquels il faut consacrer plus de temp
 
 - Utilisation axios ou fetch pour l'API
 - Utilisaton de Redux pour le state manager (state global),
-- Utilmisation des tokens JWT pour login, localstorage etc... 
+- Utilisation des tokens JWT pour login, localstorage etc... 
 
 # #  Création de l'application React
 
