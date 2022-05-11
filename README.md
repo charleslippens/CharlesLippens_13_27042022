@@ -17,7 +17,7 @@ Identification des besoins et des sujets auxquels il faut consacrer plus de temp
 
 - Installation dépendances (redux, react-router-dom etc..)
 
-En cours de construction
+En cours de construction : https://charles-lippens-13-27042022.vercel.app/
 
 # #  Créer une couche de service pour mettre en œuvre les appels à l'API
 
