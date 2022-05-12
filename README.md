@@ -25,6 +25,11 @@ En cours de construction : https://charles-lippens-13-27042022.vercel.app/
 - Gestion des appels API (fetch/axios)
 - Documentation API
 
+##  Etapes suivantes:
+
+- Redux
+- JWT tokens
+- localstorage etc
 
 
 
