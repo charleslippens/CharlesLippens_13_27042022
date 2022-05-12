@@ -9,8 +9,8 @@
 
 Identification des besoins et des sujets auxquels il faut consacrer plus de temps:
 
-- Utilisation axios ou fetch pour l'API
-- Utilisaton de Redux pour le state manager (state global),
+- Utilisation axios ou fetch pour l'API + documentation Swagger API
+- Utilisaton de Redux pour gérer state de l'ensemble de l'application (state global),
 - Utilisation des tokens JWT pour login, localstorage etc... 
 
 ## Création de l'application React
@@ -30,12 +30,13 @@ En cours de construction : https://charles-lippens-13-27042022.vercel.app/
 - Redux
 - JWT tokens
 - localstorage etc
-- Swagger :  spécifier les endpoints d’API
+- Swagger :  spécifier les endpoints d’API (YAML)
 
 
 ##  Documentations: ancienne version
 
 - HTML statique, CSS, wireframes, API documentation etc: https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API
+- Github issues: https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API/tree/master/.github/ISSUE_TEMPLATE
 
 
 
