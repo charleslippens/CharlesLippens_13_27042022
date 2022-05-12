@@ -30,6 +30,7 @@ En cours de construction : https://charles-lippens-13-27042022.vercel.app/
 - Redux
 - JWT tokens
 - localstorage etc
+- Swagger
 
 
 
