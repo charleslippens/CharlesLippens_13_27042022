@@ -30,8 +30,12 @@ En cours de construction : https://charles-lippens-13-27042022.vercel.app/
 - Redux
 - JWT tokens
 - localstorage etc
-- Swagger
+- Swagger :  spécifier les endpoints d’API
 
+
+##  Documentations: ancienne version
+
+- HTML statique, CSS, wireframes, API documentation etc: https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API
 
 
 
