@@ -1,5 +1,5 @@
 # CharlesLippens_13_27042022
-
+# Utilisez une API pour un compte utilisateur bancaire avec React
 ## Définition du plan d'action pour la mise en oeuvre du projet (liste des exigences réparties en phases)
 
 - Transformation de l'ancien site HTML statique + CSS en application React (Create React App)
