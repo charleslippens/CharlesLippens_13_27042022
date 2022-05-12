@@ -10,7 +10,7 @@
 Identification des besoins et des sujets auxquels il faut consacrer plus de temps:
 
 - Utilisation axios ou fetch pour l'API + documentation Swagger API
-- Utilisaton de Redux pour gérer state de l'ensemble de l'application (state global),
+- Utilisaton de Redux pour gérer state de l'ensemble de l'application (state global, actions, reducers et)
 - Utilisation des tokens JWT pour login, localstorage etc... 
 
 ## Création de l'application React
