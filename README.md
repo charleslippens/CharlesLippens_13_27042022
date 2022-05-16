@@ -30,7 +30,7 @@ En cours de construction : https://charles-lippens-13-27042022.vercel.app/
 - Code qui authentifie et interroge l'API sécurisée 
 - Utilisation de jetons JWT (différent de la fourniture de l'en-tete au porteur dans la demande)
 - Localstorage pour rememberMe (enregistrement des identifiants)
-- Mongodb, base de données etc
+- Mongodb community server, mettre en place le backend et la base de données etc
 - Utiliser et Intégrer Redux dans l'application React pour gérer le state  de l'application (Fichiers de codes de state management Redux)
 - Swagger :  spécifier les endpoints d’API (YAML/YML) pour la page transferts
 
