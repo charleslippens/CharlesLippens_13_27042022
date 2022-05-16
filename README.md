@@ -25,12 +25,14 @@ En cours de construction : https://charles-lippens-13-27042022.vercel.app/
 - Gestion des appels API (fetch/axios)
 - Documentation API
 
-##  Etapes suivantes:
+##  Etapes suivantes 4 et 5:
 
-- Redux
-- JWT tokens
-- localstorage etc
-- Swagger :  spécifier les endpoints d’API (YAML)
+- Code qui authentifie et interroge l'API sécurisée 
+- Utilisation de jetons JWT (différent de la fourniture de l'en-tete au porteur dans la demande)
+- Localstorage pour rememberMe (enregistrement des identifiants)
+- Mongodb, base de données etc
+- Utiliser et Intégrer Redux dans l'application React pour gérer le state  de l'application (Fichiers de codes de state management Redux)
+- Swagger :  spécifier les endpoints d’API (YAML/YML) pour la page transferts
 
 
 ##  Documentations: ancienne version
