@@ -1,4 +1,41 @@
 # CharlesLippens_13_27042022
+
+# 1. Project: installation steps
+
+## 1.1.1 Prerequisites
+
+- [NodeJS (**version 12**)](https://nodejs.org/en/)
+- [Yarn](https://yarnpkg.com/)
+
+## 1.1.2 Dependencies
+
+- React Version 18.0.0
+
+- React-router-dom 6.3.0
+
+- axios
+
+- redux, react redux, redux toolkit
+
+## 1.2 Clone or download P13 repository
+
+Clone the P13 repository CharlesLippens_12_08042022 (containing backend+frontend) : https://github.com/charleslippens/CharlesLippens_13_27042022.git or click on Code => download ZIP
+
+## 1.3 Install - Backend API
+
+Inside the root folder, install the packages/dependencies with command on terminal: `yarn install`
+
+Run the server API, which will then listen on port 3001 by default with command on terminal: `yarn start` ( command which will allow you to run the micro API)
+
+
+## 1.4 Install - Frontend React Application
+
+Inside the frontend folder, install the packages/dependencies with command on terminal: `yarn install`
+
+Run the Frontend App with command on terminal: `yarn start` and run it on port 3000
+
+
+
 # Utilisez une API pour un compte utilisateur bancaire avec React
 ## Définition du plan d'action pour la mise en oeuvre du projet (liste des exigences réparties en phases)
 
@@ -46,8 +83,7 @@ En cours de construction : https://charles-lippens-13-27042022.vercel.app/
 ##  Perspectives/évolutions :
 
 - SASS, CSS in JS (styled components) etc..
-- Typescript?
-- etc
+- Typescript? autres?
 
 
 
