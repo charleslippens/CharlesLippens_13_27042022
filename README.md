@@ -39,10 +39,13 @@ En cours de construction : https://charles-lippens-13-27042022.vercel.app/
 
 - HTML statique, CSS, wireframes, API documentation etc: https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API
 - Github issues: https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API/tree/master/.github/ISSUE_TEMPLATE
+- S'authentifier, Modéliser, Intéragir avec une API
+- Implémenter un gestionnaire d'état dans une application React
+
 
 ##  Perspectives/évolutions :
 
-- SASS, CSS in JS (styled components) etc
+- SASS, CSS in JS (styled components) etc..
 - Typescript?
 - etc
 
