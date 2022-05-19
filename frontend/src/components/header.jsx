@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/argentBankLogo.png";
 
-const Header = () => {
+function Header() {
 	return (
 		<nav className="main-nav">
 			<Link to="/">
@@ -10,12 +10,12 @@ const Header = () => {
 			</Link>
 			<div>
 				<Link to="./login" className="main-nav-item">
-					<i class="fa fa-user-circle"></i>
+					<i className="fa fa-user-circle"></i>
 					<span className="main-nav-item">Sign In</span>
 				</Link>
 			</div>
 		</nav>
 	);
-};
+}
 
 export default Header;

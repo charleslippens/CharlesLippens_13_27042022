@@ -1,8 +1,8 @@
-import featuresData from "../data/dataFeatures.jsx";
+import featuresData from "../datas/dataFeatures.jsx";
 import Banner from "../components/banner.jsx";
 import Features from "../components/feature.jsx";
 
-export default function Home() {
+function Home() {
 	return (
 		<main>
 			<Banner />
@@ -21,3 +21,5 @@ export default function Home() {
 		</main>
 	);
 }
+
+export default Home;
