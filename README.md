@@ -25,9 +25,14 @@ Clone the P13 repository CharlesLippens_13_27042022 (containing backend+frontend
 
 Inside the root folder, install the packages/dependencies with command on terminal: `yarn install`
 
-Run the server API, which will then listen on port 3001 by default with command on terminal: `yarn start` ( command which will allow you to run the micro API)
+# Install dependencies
+npm install
 
-Documentation : https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API
+# Start local dev server
+npm run dev:server
+
+# Populate database with two users
+npm run populate-db
 
 ## 1.4 Install - Frontend React Application
 
