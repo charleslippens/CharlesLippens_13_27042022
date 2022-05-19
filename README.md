@@ -73,7 +73,7 @@ En cours de construction (page profil, backend server nodeJS uniquement en local
 ##  Etapes suivantes 4 et 5:
 
 - Code qui authentifie et interroge l'API sécurisée 
-- Utilisation de jetons JWT (différent de la fourniture de l'en-tete au porteur dans la demande)
+- Utilisation de jetons/tokens JWT pour l'authentification sécurisée (différent de la fourniture de l'en-tete au porteur dans la demande)
 - Mongodb community server, mettre en place le backend server et la base de données
 - Utiliser et Intégrer Redux dans l'application React pour gérer le state  de l'application (Fichiers de codes de state management Redux)
 - Swagger :  spécifier les endpoints d’API (YAML/YML) pour la page transferts
