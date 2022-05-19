@@ -13,13 +13,13 @@
 
 - React-router-dom 6.3.0
 
-- axios
+- Axios
 
-- redux, react redux, redux toolkit
+- Redux, react-redux, redux-toolkit
 
 ## 1.2 Clone or download P13 repository
 
-Clone the P13 repository CharlesLippens_12_08042022 (containing backend+frontend) : https://github.com/charleslippens/CharlesLippens_13_27042022.git or click on Code => download ZIP
+Clone the P13 repository CharlesLippens_13_27042022 (containing backend+frontend) : https://github.com/charleslippens/CharlesLippens_13_27042022.git or click on Code => download ZIP
 
 ## 1.3 Install - Backend API
 
@@ -27,14 +27,13 @@ Inside the root folder, install the packages/dependencies with command on termin
 
 Run the server API, which will then listen on port 3001 by default with command on terminal: `yarn start` ( command which will allow you to run the micro API)
 
+Documentation : https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API
 
 ## 1.4 Install - Frontend React Application
 
 Inside the frontend folder, install the packages/dependencies with command on terminal: `yarn install`
 
-Run the Frontend App with command on terminal: `yarn start` and run it on port 3000
-
-
+Run the Frontend App with command on terminal on port 3000: `yarn start`
 
 # Utilisez une API pour un compte utilisateur bancaire avec React
 ## Définition du plan d'action pour la mise en oeuvre du projet (liste des exigences réparties en phases)
@@ -82,8 +81,8 @@ En cours de construction : https://charles-lippens-13-27042022.vercel.app/
 
 ##  Perspectives/évolutions :
 
-- SASS, CSS in JS (styled components) etc..
-- Typescript? autres?
+- SASS, CSS-in-JS (styled components) etc..
+- Typescript? autre?
 
 
 
