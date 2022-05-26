@@ -8,28 +8,8 @@ import { loadUserPending, loadUserRejected, loadUserSuccess } from "../redux/act
 
 axios.defaults.baseURL = "http://localhost:3001/api/v1/user";
 
-// login to the back-end API with JWT tokens for authentication
-// dispatch to change state
-export const getToken = (email, password) => {
-	return (dispatch) => {
-		dispatch(loadTokenPending());
-		axios
-			.post("/login", {
-				email,
-				password,
-			})
-			.then((response) => {
-				dispatch(loadTokenSuccess(response.data.body.token));
-				dispatch(getUser(response.data.body.token));
-				//	console.log(dispatch(getUser(response.data.body.token)));
-			})
-			.catch((error) => {
-				dispatch(loadTokenRejected(error.message));
-			});
-	};
-};
 // send a post request to get user infos/token (bearer JWT token)
-export const getUser = (token) => {
+export function UserData(token) {
 	return (dispatch) => {
 		dispatch(loadUserPending());
 		axios({
@@ -45,4 +25,26 @@ export const getUser = (token) => {
 				dispatch(loadUserRejected(error.message));
 			});
 	};
-};
+}
+
+// login to the back-end API with JWT tokens for authentication
+// dispatch to change state
+export function TokenData(email, password, remember) {
+	return (dispatch) => {
+		dispatch(loadTokenPending());
+		axios
+			.post("/login", {
+				email,
+				password,
+			})
+			.then((response) => {
+				dispatch(loadTokenSuccess(response.data.body.token));
+				dispatch(UserData(response.data.body.token));
+				//	dispatch(getUser(response.data.body.token));
+				//	console.log(dispatch(getUser(response.data.body.token)));
+			})
+			.catch((error) => {
+				dispatch(loadTokenRejected(error.message));
+			});
+	};
+}

@@ -1,10 +1,11 @@
 import { createReducer } from "@reduxjs/toolkit";
 
 import { loadUserPending, loadUserRejected, loadUserSuccess } from "../actions/getUser.jsx";
+import { discon } from "../actions/disconnect.jsx";
 
 const initialStateUser = {
 	isLoading: false,
-	isLogged: false,
+	isLogin: false,
 	user: {},
 	error: "",
 };
@@ -20,14 +21,21 @@ const userReducer = createReducer(initialStateUser, (builder) => {
 		})
 		.addCase(loadUserSuccess, (draft, action) => {
 			draft.isLoading = false;
-			draft.isLogged = true;
+			draft.isLogin = true;
 			draft.user = action.payload;
 			draft.error = "";
 			return;
 		})
 		.addCase(loadUserRejected, (draft, action) => {
 			draft.isLoading = false;
-			draft.isLogged = false;
+			draft.isLogin = false;
+			draft.user = {};
+			draft.error = action.payload;
+			return;
+		})
+		.addCase(discon, (draft, action) => {
+			draft.isLoading = false;
+			draft.isLogin = false;
 			draft.user = {};
 			draft.error = action.payload;
 			return;

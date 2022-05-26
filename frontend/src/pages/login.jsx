@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router";
 
-import { getToken } from "../services/axiosApi.jsx";
+import { TokenData } from "../services/axiosApi.jsx";
 
 //  Navigate to the login page (/login)
 //   Fill out credentials
@@ -19,7 +19,7 @@ function Login() {
 
 	const handleSub = (e) => {
 		e.preventDefault();
-		dispatch(getToken(email, password));
+		dispatch(TokenData(email, password));
 	};
 
 	if (message === 200) {
