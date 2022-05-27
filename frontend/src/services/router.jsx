@@ -5,7 +5,7 @@ import Footer from "../components/footer.jsx";
 import Home from "../pages/home.jsx";
 import Login from "../pages/login.jsx";
 import Profil from "../pages/profil.jsx";
-
+//Routes: login, profil, home
 function Router() {
 	return (
 		<>

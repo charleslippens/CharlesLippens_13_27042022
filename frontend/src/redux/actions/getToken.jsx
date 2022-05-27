@@ -3,7 +3,7 @@
 
 import { createAction } from "@reduxjs/toolkit";
 
-export const loadTokenPending = createAction("load-token");
+export const loadTokenPending = createAction("load-token-pending");
 
 export const loadTokenSuccess = createAction("get-token-success", (token) => {
 	return {
@@ -11,7 +11,7 @@ export const loadTokenSuccess = createAction("get-token-success", (token) => {
 	};
 });
 
-export const loadTokenRejected = createAction("get-token-error", (error) => {
+export const loadTokenRejected = createAction("get-token-rejected", (error) => {
 	return {
 		payload: { error },
 	};

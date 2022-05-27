@@ -3,10 +3,10 @@ import { createReducer } from "@reduxjs/toolkit";
 import { loadTokenPending, loadTokenRejected, loadTokenSuccess } from "../actions/getToken.jsx";
 
 const initialStateToken = {
-	isLoading: false,
+	isLoad: false,
 	token: "",
 	tokenExist: "",
-	error: "",
+	rejected: "",
 };
 
 //  reducer for handling application state changes
@@ -15,24 +15,24 @@ const initialStateToken = {
 const tokenReducer = createReducer(initialStateToken, (builder) => {
 	return builder
 		.addCase(loadTokenPending, (draft) => {
-			draft.isLoading = true;
+			draft.isLoad = true;
 			draft.token = "";
 			draft.tokenExist = "";
-			draft.error = "";
+			draft.rejected = "";
 			return;
 		})
 		.addCase(loadTokenSuccess, (draft, action) => {
-			draft.isLoading = false;
+			draft.isLoad = false;
 			draft.token = action.payload;
 			draft.tokenExist = true;
-			draft.error = "";
+			draft.rejected = "";
 			return;
 		})
 		.addCase(loadTokenRejected, (draft, action) => {
-			draft.isLoading = false;
+			draft.isLoad = false;
 			draft.token = "";
 			draft.tokenExist = false;
-			draft.error = action.payload;
+			draft.rejected = action.payload;
 			return;
 		});
 });

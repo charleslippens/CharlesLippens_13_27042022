@@ -4,7 +4,7 @@
 
 import { createAction } from "@reduxjs/toolkit";
 
-export const loadUserPending = createAction("get-user");
+export const loadUserPending = createAction("get-user-pending");
 
 export const loadUserSuccess = createAction("get-user-success", (user) => {
 	return {
@@ -12,7 +12,7 @@ export const loadUserSuccess = createAction("get-user-success", (user) => {
 	};
 });
 
-export const loadUserRejected = createAction("get-user-error", (error) => {
+export const loadUserRejected = createAction("get-user-rejected", (error) => {
 	return {
 		payload: error,
 	};

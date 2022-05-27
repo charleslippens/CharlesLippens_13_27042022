@@ -4,10 +4,10 @@ import { loadUserPending, loadUserRejected, loadUserSuccess } from "../actions/g
 import { discon } from "../actions/disconnect.jsx";
 
 const initialStateUser = {
-	isLoading: false,
+	isLoad: false,
 	isLogin: false,
 	user: {},
-	error: "",
+	rejected: "",
 };
 
 // reducer for handling application state changes
@@ -16,28 +16,28 @@ const initialStateUser = {
 const userReducer = createReducer(initialStateUser, (builder) => {
 	return builder
 		.addCase(loadUserPending, (draft) => {
-			draft.isLoading = true;
+			draft.isLoad = true;
 			return;
 		})
 		.addCase(loadUserSuccess, (draft, action) => {
 			draft.isLoading = false;
 			draft.isLogin = true;
 			draft.user = action.payload;
-			draft.error = "";
+			draft.rejected = "";
 			return;
 		})
 		.addCase(loadUserRejected, (draft, action) => {
-			draft.isLoading = false;
+			draft.isLoad = false;
 			draft.isLogin = false;
 			draft.user = {};
-			draft.error = action.payload;
+			draft.rejected = action.payload;
 			return;
 		})
 		.addCase(discon, (draft, action) => {
-			draft.isLoading = false;
+			draft.isLoad = false;
 			draft.isLogin = false;
 			draft.user = {};
-			draft.error = action.payload;
+			draft.rejected = action.payload;
 			return;
 		});
 });
