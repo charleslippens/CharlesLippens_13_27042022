@@ -3,8 +3,8 @@ import {
 	loadTokenPending,
 	loadTokenRejected,
 	loadTokenSuccess,
-} from "../redux/actions/getToken.jsx";
-import { loadUserPending, loadUserRejected, loadUserSuccess } from "../redux/actions/getUser.jsx";
+} from "../redux/actions/tokenGet.jsx";
+import { loadUserPending, loadUserRejected, loadUserSuccess } from "../redux/actions/userGet.jsx";
 
 axios.defaults.baseURL = "http://localhost:3001/api/v1/user";
 

@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 
-import { loadUserPending, loadUserRejected, loadUserSuccess } from "../actions/getUser.jsx";
+import { loadUserPending, loadUserRejected, loadUserSuccess } from "../actions/userGet.jsx";
 import { discon } from "../actions/disconnect.jsx";
 
 const initialStateUser = {

@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 
-import { loadTokenPending, loadTokenRejected, loadTokenSuccess } from "../actions/getToken.jsx";
+import { loadTokenPending, loadTokenRejected, loadTokenSuccess } from "../actions/tokenGet.jsx";
 
 const initialStateToken = {
 	isLoad: false,

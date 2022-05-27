@@ -1,5 +1,5 @@
-import userReducer from "../reducers/userReducer.jsx";
-import tokenReducer from "../reducers/tokenReducer.jsx";
+import userReducer from "../reducers/reducerUser.jsx";
+import tokenReducer from "../reducers/reducterToken.jsx";
 import { configureStore } from "@reduxjs/toolkit";
 
 // State management

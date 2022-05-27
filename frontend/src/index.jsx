@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Router from "./services/router.jsx";
 import { Provider } from "react-redux";
-import store from "./redux/store/store.jsx";
+import store from "./redux/store/storeRedux.jsx";
 
 // Provider + store redux
 const root = ReactDOM.createRoot(document.getElementById("root"));
