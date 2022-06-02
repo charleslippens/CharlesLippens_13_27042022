@@ -1,16 +1,28 @@
 import accountData from "../datas/dataAccounts.jsx";
+import { usersEdit } from "../services/axiosApi.jsx";
 import Account from "../components/account.jsx";
 import { Navigate } from "react-router";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import React, { useState } from "react";
 
 function User() {
+	const dispatch = useDispatch();
+	const [nameEdit, setnameEdit] = useState(false);
+	const [newFirstName, setNewFirstName] = useState("");
+	const [newLastName, setNewLastName] = useState("");
 	const selectUser = (state) => state.getUser.user.body;
 	const user = useSelector(selectUser);
+
 	if (user === undefined) {
-		return <Navigate to="/login" />;
+		return <Navigate to="/" />;
 	}
+
 	const firstName = user.firstName;
 	const lastName = user.lastName;
+	const edit = () => {
+		dispatch(usersEdit(newFirstName, newLastName));
+		setnameEdit(false);
+	};
 	return (
 		<>
 			<main className="main bg-dark">
@@ -21,17 +33,58 @@ function User() {
 						{firstName} {lastName}
 					</h1>
 				</div>
-				<div>
-					<input className="edit-button" type="button" value="Edit Name" />
-					<input className="edit-input" type="text" />
-					<input className="edit-input" type="text" />
-					<button className="edit-button" type="submit" value="Save">
-						Save
-					</button>
-					<button className="edit-button" type="button" value="Cancel">
-						Cancel
-					</button>
-				</div>
+				{nameEdit ? (
+					<div>
+						<input
+							className="edit-button"
+							type="button"
+							value="Edit Name"
+							onClick={() => {
+								setnameEdit(true);
+							}}
+						/>
+						<input
+							className="edit-input"
+							type="text"
+							value={newFirstName}
+							placeholder={firstName}
+							onChange={(e) => {
+								setNewFirstName(e.target.value);
+							}}
+						/>
+						<input
+							className="edit-input"
+							type="text"
+							value={newLastName}
+							placeholder={lastName}
+							onChange={(e) => {
+								setNewLastName(e.target.value);
+							}}
+						/>
+						<button className="edit-button" type="submit" value="Save" onClick={edit}>
+							Save
+						</button>
+						<button
+							className="edit-button"
+							type="button"
+							value="Cancel"
+							onClick={() => {
+								setnameEdit(false);
+							}}
+						>
+							Cancel
+						</button>
+					</div>
+				) : (
+					<input
+						className="edit-button"
+						type="button"
+						onClick={() => {
+							setnameEdit(true);
+						}}
+						value="Edit Name"
+					/>
+				)}
 				<h3 className="sr-only">Accounts</h3>
 				{accountData.map((account, index) => (
 					<Account

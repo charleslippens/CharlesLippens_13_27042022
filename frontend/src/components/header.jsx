@@ -7,6 +7,7 @@ function Header() {
 	const dispatch = useDispatch();
 
 	const disconnect = () => {
+		localStorage.removeItem("token");
 		return (dispatch) => {
 			dispatch(discon());
 		};

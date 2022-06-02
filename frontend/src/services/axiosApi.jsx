@@ -5,6 +5,7 @@ import {
 	loadTokenSuccess,
 } from "../redux/actions/tokenGet.jsx";
 import { loadUserPending, loadUserRejected, loadUserSuccess } from "../redux/actions/userGet.jsx";
+import { userEditPending, userEditRejected, userEditSuccess } from "../redux/actions/userEdit.jsx";
 
 axios.defaults.baseURL = "http://localhost:3001/api/v1/user";
 
@@ -29,7 +30,7 @@ export function UserData(token) {
 
 // login to the back-end API with JWT tokens for authentication
 // dispatch to change state
-export function TokenData(email, password, remember) {
+export function TokenData(email, password) {
 	return (dispatch) => {
 		dispatch(loadTokenPending());
 		axios
@@ -40,6 +41,9 @@ export function TokenData(email, password, remember) {
 			.then((response) => {
 				dispatch(loadTokenSuccess(response.data.body.token));
 				dispatch(UserData(response.data.body.token));
+				localStorage.setItem("token", response.data.body.token);
+				const token = localStorage.getItem("token");
+				dispatch(UserData(token));
 				//	dispatch(getUser(response.data.body.token));
 				//	console.log(dispatch(getUser(response.data.body.token)));
 			})
@@ -48,3 +52,26 @@ export function TokenData(email, password, remember) {
 			});
 	};
 }
+
+// edit firstname and lastname for user
+export const usersEdit = (firstName, lastName) => {
+	const token = localStorage.getItem("token");
+	return (dispatch) => {
+		dispatch(userEditPending());
+		axios({
+			method: "PUT",
+			url: "/profile",
+			headers: { Authorization: `Bearer ${token}` },
+			data: {
+				firstName,
+				lastName,
+			},
+		})
+			.then((response) => {
+				dispatch(userEditSuccess(response.data));
+			})
+			.catch((error) => {
+				dispatch(userEditRejected(error.message));
+			});
+	};
+};
