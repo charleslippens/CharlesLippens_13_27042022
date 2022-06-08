@@ -1,0 +1,277 @@
+swagger: "2.0"
+info:
+    title: Bank Argent API documentation 2/2
+    description: Contains all available API endpoints in this codebase for the transactions' part
+    version: "1.0.0"
+    termsOfService: "http://swagger.io/terms/"
+host: localhost:3001
+basePath: /api/v1
+schemes:
+    - http
+paths:
+    /transactions/:
+        get:
+            security:
+                - Bearer: []
+            tags:
+                - User Transactions
+            summary: Last transactions
+            description: View all transactions for the current month
+            consumes:
+                - "application/json"
+            produces:
+                - "application/json"
+            parameters:
+                - in: header
+                  type: string
+                  name: Authorization
+                  description: Attach Bearer JWT token
+                  required: true
+                - name: Time
+                  in: body
+                  description: current month
+                  required: true
+                  schema:
+                      $ref: "#/definitions/TransactionsCurrentMonth"
+            responses:
+                "200":
+                    description: Last user transactions retrieved successully
+                    schema:
+                        $ref: "#/definitions/LastTransactions"
+                "400":
+                    description: Invalid Fields
+                "401":
+                    description: Invalid Token
+                "404":
+                    description: Invalid Path
+                "500":
+                    description: Internal Server Error
+
+    /transactions/{transactionId}:
+        get:
+            security:
+                - Bearer: []
+            tags:
+                - User Transactions
+            summary: Transaction details
+            description: API to show transaction details
+            produces:
+                - "application/json"
+            parameters:
+                - in: header
+                  type: string
+                  name: Authorization
+                  description: Attach Bearer JWT token
+                  required: true
+                - name: transactionId
+                  in: path
+                  description: ID of transaction to return
+                  required: true
+                  type: string
+            responses:
+                "200":
+                    description: Transaction sucessfully loaded
+                    schema:
+                        $ref: "#/definitions/TransactionId"
+                "400":
+                    description: Invalid Fields
+                "401":
+                    description: Invalid Token
+                "403":
+                    description: Access Denied
+                "404":
+                    description: Invalid Path
+                "500":
+                    description: Internal Server Error
+        put:
+            security:
+                - Bearer: []
+            tags:
+                - User Transactions
+            summary: Edit Transaction detail
+            description: API to modify transaction details
+            produces:
+                - "application/json"
+            parameters:
+                - in: header
+                  type: string
+                  name: Authorization
+                  description: Attach Bearer JWT token
+                  required: true
+                - name: transactionId
+                  in: path
+                  description: Id of the transaction
+                  required: true
+                  type: string
+                - in: body
+                  name: body
+                  description: Update transaction attributes
+                  required: true
+                  schema:
+                      $ref: "#/definitions/TransactionModify"
+            responses:
+                "200":
+                    description: Transaction's details sucessfully modified
+                    schema:
+                        $ref: "#/definitions/TransactionModifyResponse"
+                "400":
+                    description: Invalid Fields
+                "401":
+                    description: Invalid Token
+                "403":
+                    description: Access Denied
+                "404":
+                    description: Invalid Path
+                "500":
+                    description: Internal Server Error
+
+securityDefinitions:
+    Bearer:
+        type: apiKey
+        name: Authorization
+        in: header
+
+definitions:
+    TransactionsCurrentMonth:
+        type: object
+        properties:
+            from:
+                type: string
+                format: date
+                description: one month before
+                example: "2022-06-02"
+            to:
+                type: string
+                format: date
+                description: end date of transaction recovery
+                example: "2022-06-05"
+
+    LastTransactions:
+        type: object
+        properties:
+            status:
+                type: integer
+                format: int64
+                example: 300
+            message:
+                type: string
+                format: string
+                example: transactions successfully loaded
+            schema:
+                $ref: "#/definitions/Infos"
+
+    Infos:
+        type: object
+        properties:
+            transactionId:
+                type: string
+                description: transaction's ID
+            date:
+                type: string
+                format: date-time
+                description: transaction's date
+            description:
+                type: string
+                description: transaction description
+            amount:
+                type: integer
+                format: int64
+                description: transaction's amount
+            balance:
+                type: integer
+                format: int64
+                description: account balance after transaction
+
+    TransactionModifyResponse:
+        type: object
+        properties:
+            status:
+                type: integer
+                example: 300
+            message:
+                type: string
+                example: details successfully edited
+            schema:
+                $ref: "#/definitions/TransactionInf"
+
+    TransactionInf:
+        type: object
+        properties:
+            transactionId:
+                type: string
+                description: transaction's ID
+                example: dada455da
+            date:
+                type: string
+                format: date-time
+                description: transaction's date
+                example: "2022-06-02"
+            description:
+                type: string
+                description: transaction's description
+                example: Golden Fish
+            amount:
+                type: integer
+                format: int64
+                description: transaction's amount
+                example: 200
+            balance:
+                type: integer
+                format: int64
+                description: account balance after transaction
+                example: 3054
+            category:
+                type: string
+                description: transaction's category
+                example: Food
+            notes:
+                type: string
+                description: transaction's notes
+                example: Bad food
+
+    TransactionId:
+        type: object
+        properties:
+            transactionId:
+                type: string
+                description: transaction's ID
+                example: dada455da
+            date:
+                type: string
+                format: date-time
+                description: transaction's date
+                example: "2022-06-02"
+            description:
+                type: string
+                description: transaction's description
+                example: Golden Fish
+            amount:
+                type: integer
+                format: int64
+                description: transaction's amount
+                example: 200
+            balance:
+                type: integer
+                format: int64
+                description: account balance after transaction
+                example: 3054
+            category:
+                type: string
+                description: transaction's category
+                example: Food
+            notes:
+                type: string
+                description: transaction's notes
+                example: Good food
+
+    TransactionModify:
+        type: object
+        properties:
+            category:
+                type: string
+                description: transaction's category
+                example: Food
+            notes:
+                type: string
+                description: transaction's notes
+                example: Bad food

@@ -10,12 +10,13 @@ import { TokenData } from "../services/axiosApi.jsx";
 // 	react-redux: to send actions from component, useSelector to extract piece of state and update component when changes
 
 function Login() {
+	const [invalid] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const message = useSelector((state) => state.getUser.user.status);
+	const tokenExist = useSelector((state) => state.token.tokenExist);
 
 	const dispatch = useDispatch();
-
-	const message = useSelector((state) => state.getUser.user.status);
 
 	const handleSub = (e) => {
 		e.preventDefault();
@@ -56,6 +57,10 @@ function Login() {
 							}}
 						/>
 					</div>
+					<div>{invalid}</div>
+					{tokenExist === false && (
+						<div className="error_login">email or password are invalid</div>
+					)}
 					<div className="input-remember">
 						<input type="checkbox" id="remember-me" />
 						<label htmlFor="remember-me">Remember me</label>

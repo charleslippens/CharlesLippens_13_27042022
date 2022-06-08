@@ -16,7 +16,9 @@ body {
 .main {
 	flex: 1;
 }
-
+.error_login {
+	color: red;
+}
 .bg-dark {
 	background-color: #12002b;
 	padding: 2rem;

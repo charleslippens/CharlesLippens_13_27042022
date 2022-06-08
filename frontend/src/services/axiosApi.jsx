@@ -10,6 +10,7 @@ import { userEditPending, userEditRejected, userEditSuccess } from "../redux/act
 axios.defaults.baseURL = "http://localhost:3001/api/v1/user";
 
 // send a post request to get user infos/token (bearer JWT token)
+// to get user's info
 export function UserData(token) {
 	return (dispatch) => {
 		dispatch(loadUserPending());
@@ -30,6 +31,7 @@ export function UserData(token) {
 
 // login to the back-end API with JWT tokens for authentication
 // dispatch to change state
+// to get user's token
 export function TokenData(email, password) {
 	return (dispatch) => {
 		dispatch(loadTokenPending());
@@ -40,12 +42,11 @@ export function TokenData(email, password) {
 			})
 			.then((response) => {
 				dispatch(loadTokenSuccess(response.data.body.token));
-				dispatch(UserData(response.data.body.token));
-				localStorage.setItem("token", response.data.body.token);
-				const token = localStorage.getItem("token");
+				console.log(dispatch(loadTokenSuccess(response.data.body.token)));
+				sessionStorage.setItem("token", response.data.body.token);
+				const token = sessionStorage.getItem("token");
 				dispatch(UserData(token));
-				//	dispatch(getUser(response.data.body.token));
-				//	console.log(dispatch(getUser(response.data.body.token)));
+				console.log(dispatch(UserData(token)));
 			})
 			.catch((error) => {
 				dispatch(loadTokenRejected(error.message));
@@ -54,8 +55,10 @@ export function TokenData(email, password) {
 }
 
 // edit firstname and lastname for user
-export const usersEdit = (firstName, lastName) => {
-	const token = localStorage.getItem("token");
+
+export function usersEdit(firstName, lastName) {
+	const token = sessionStorage.getItem("token");
+	console.log(token);
 	return (dispatch) => {
 		dispatch(userEditPending());
 		axios({
@@ -69,9 +72,10 @@ export const usersEdit = (firstName, lastName) => {
 		})
 			.then((response) => {
 				dispatch(userEditSuccess(response.data));
+				console.log(dispatch(userEditSuccess(response.data)));
 			})
 			.catch((error) => {
 				dispatch(userEditRejected(error.message));
 			});
 	};
-};
+}

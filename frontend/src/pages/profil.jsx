@@ -1,11 +1,15 @@
 import accountData from "../datas/dataAccounts.jsx";
 import { usersEdit } from "../services/axiosApi.jsx";
+//import { UserData } from "../services/axiosApi.jsx";
+
 import Account from "../components/account.jsx";
 import { Navigate } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
-import React, { useState } from "react";
+import { useState } from "react";
 
 function User() {
+	//const store = useSelector((state) => state);
+
 	const dispatch = useDispatch();
 	const [nameEdit, setnameEdit] = useState(false);
 	const [newFirstName, setNewFirstName] = useState("");
@@ -16,7 +20,6 @@ function User() {
 	if (user === undefined) {
 		return <Navigate to="/" />;
 	}
-
 	const firstName = user.firstName;
 	const lastName = user.lastName;
 	const edit = () => {
