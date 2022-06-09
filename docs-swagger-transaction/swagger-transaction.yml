@@ -1,8 +1,8 @@
 swagger: "2.0"
 info:
-    title: Bank Argent API documentation 2/2
+    title: Bank Argent API documentation 2/2 - CL
     description: Contains all available API endpoints in this codebase for the transactions' part
-    version: "1.0.0"
+    version: "1.1.0"
     termsOfService: "http://swagger.io/terms/"
 host: localhost:3001
 basePath: /api/v1
@@ -40,10 +40,6 @@ paths:
                         $ref: "#/definitions/LastTransactions"
                 "400":
                     description: Invalid Fields
-                "401":
-                    description: Invalid Token
-                "404":
-                    description: Invalid Path
                 "500":
                     description: Internal Server Error
 
@@ -77,10 +73,6 @@ paths:
                     description: Invalid Fields
                 "401":
                     description: Invalid Token
-                "403":
-                    description: Access Denied
-                "404":
-                    description: Invalid Path
                 "500":
                     description: Internal Server Error
         put:
@@ -118,10 +110,6 @@ paths:
                     description: Invalid Fields
                 "401":
                     description: Invalid Token
-                "403":
-                    description: Access Denied
-                "404":
-                    description: Invalid Path
                 "500":
                     description: Internal Server Error
 

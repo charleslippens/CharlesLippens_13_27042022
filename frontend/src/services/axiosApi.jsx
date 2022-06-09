@@ -46,7 +46,6 @@ export function TokenData(email, password) {
 				sessionStorage.setItem("token", response.data.body.token);
 				const token = sessionStorage.getItem("token");
 				dispatch(UserData(token));
-				console.log(dispatch(UserData(token)));
 			})
 			.catch((error) => {
 				dispatch(loadTokenRejected(error.message));
