@@ -14,9 +14,9 @@ function User() {
 	const [nameEdit, setnameEdit] = useState(false);
 	const [newFirstName, setNewFirstName] = useState("");
 	const [newLastName, setNewLastName] = useState("");
-	const selectUser = (state) => state.getUser.user.body;
+	const selectUser = (state) => state.datatUser.user.body;
 	const user = useSelector(selectUser);
-
+	console.log(user);
 	if (user === undefined) {
 		return <Navigate to="/" />;
 	}

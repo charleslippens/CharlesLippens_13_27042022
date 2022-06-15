@@ -13,14 +13,16 @@ function Login() {
 	const [invalid] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const message = useSelector((state) => state.getUser.user.status);
-	const tokenExist = useSelector((state) => state.token.tokenExist);
+	const [rememberMe, setRememberMe] = useState(false);
 
+	const message = useSelector((state) => state.datatUser.user.status);
+	const tokenExist = useSelector((state) => state.token.tokenExist);
 	const dispatch = useDispatch();
+	const handleChangeRememberMe = () => setRememberMe(!rememberMe);
 
 	const handleSub = (e) => {
 		e.preventDefault();
-		dispatch(TokenData(email, password));
+		dispatch(TokenData(email, password, rememberMe));
 	};
 
 	if (message === 200) {
@@ -62,7 +64,12 @@ function Login() {
 						<div className="error_login">email or password are invalid</div>
 					)}
 					<div className="input-remember">
-						<input type="checkbox" id="remember-me" />
+						<input
+							type="checkbox"
+							id="remember-me"
+							checked={rememberMe}
+							onChange={handleChangeRememberMe}
+						/>
 						<label htmlFor="remember-me">Remember me</label>
 					</div>
 					<button className="sign-in-button">Sign In</button>

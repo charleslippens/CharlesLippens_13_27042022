@@ -8,15 +8,16 @@ function Header() {
 
 	const disconnect = () => {
 		sessionStorage.removeItem("token");
+		localStorage.removeItem("token");
 		return (dispatch) => {
 			dispatch(discon());
 		};
 	};
 
-	const selectLogin = (state) => state.getUser.isLogin;
+	const selectLogin = (state) => state.datatUser.isLogin;
 	const login = useSelector(selectLogin);
 
-	const selectUser = (state) => state.getUser.user;
+	const selectUser = (state) => state.datatUser.user;
 	const user = useSelector(selectUser);
 	return (
 		<nav className="main-nav">

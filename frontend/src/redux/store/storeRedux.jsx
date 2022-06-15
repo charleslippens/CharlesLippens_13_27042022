@@ -18,7 +18,7 @@ const persistedReducer = persistReducer(persistConfig, userReducer);
 const store = configureStore({
 	reducer: {
 		token: tokenReducer,
-		getUser: persistedReducer,
+		datatUser: persistedReducer,
 	},
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware({

@@ -32,7 +32,7 @@ export function UserData(token) {
 // login to the back-end API with JWT tokens for authentication
 // dispatch to change state
 // to get user's token
-export function TokenData(email, password) {
+export function TokenData(email, password, rememberMe) {
 	return (dispatch) => {
 		dispatch(loadTokenPending());
 		axios
@@ -42,6 +42,10 @@ export function TokenData(email, password) {
 			})
 			.then((response) => {
 				dispatch(loadTokenSuccess(response.data.body.token));
+				const setValueToLocalStorage = (key, value) => localStorage.setItem(key, value);
+				if (rememberMe) {
+					setValueToLocalStorage("token", response.data.body.token);
+				}
 				console.log(dispatch(loadTokenSuccess(response.data.body.token)));
 				sessionStorage.setItem("token", response.data.body.token);
 				const token = sessionStorage.getItem("token");
