@@ -14,7 +14,9 @@ function User() {
 	const [nameEdit, setnameEdit] = useState(false);
 	const [newFirstName, setNewFirstName] = useState("");
 	const [newLastName, setNewLastName] = useState("");
+	const [editNameError, setEditNameError] = useState("");
 	const selectUser = (state) => state.datatUser.user.body;
+
 	const user = useSelector(selectUser);
 	console.log(user);
 	if (user === undefined) {
@@ -22,9 +24,17 @@ function User() {
 	}
 	const firstName = user.firstName;
 	const lastName = user.lastName;
-	const edit = () => {
-		dispatch(usersEdit(newFirstName, newLastName));
-		setnameEdit(false);
+	const edit = (event) => {
+		event.preventDefault();
+		if (newFirstName === firstName && newLastName === lastName) {
+			setEditNameError("FirstName and LastName are equal, please choose differents ones");
+		} else if (newFirstName.length === 0 || newLastName.length === 0) {
+			setEditNameError("Inputs are empty");
+		} else if (newFirstName.length > 0 && newLastName.length > 0) {
+			dispatch(usersEdit(newFirstName, newLastName));
+			setnameEdit(false);
+			setEditNameError("");
+		}
 	};
 	return (
 		<>
@@ -88,6 +98,11 @@ function User() {
 						value="Edit Name"
 					/>
 				)}
+				<div>
+					{editNameError && (
+						<div className="input-names input-error">{editNameError}</div>
+					)}
+				</div>
 				<h3 className="sr-only">Accounts</h3>
 				{accountData.map((account, index) => (
 					<Account

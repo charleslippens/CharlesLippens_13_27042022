@@ -299,6 +299,10 @@ body {
 	color: #fff;
 }
 
+.input-names.input-error {
+	color: red;
+}
+
 @media (min-width: 720px) {
 	.account {
 		flex-direction: row;

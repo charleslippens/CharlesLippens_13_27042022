@@ -61,7 +61,7 @@ function Login() {
 					</div>
 					<div>{invalid}</div>
 					{tokenExist === false && (
-						<div className="error_login">email or password are invalid</div>
+						<div className="error_login">Email or password are invalid</div>
 					)}
 					<div className="input-remember">
 						<input
