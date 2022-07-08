@@ -1,6 +1,4 @@
-# CharlesLippens_13_27042022
-
-# Utilisez une API pour un compte utilisateur bancaire avec React
+# CharlesLippens_13_27042022/ Utilisez une API pour un compte utilisateur bancaire avec React
 
 # 1. Project: installation steps
 
