@@ -53,6 +53,7 @@ function Login() {
 							type="password"
 							id="password"
 							name="password"
+							autoComplete="on"
 							value={password}
 							onChange={(e) => {
 								setPassword(e.target.value);

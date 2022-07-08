@@ -46,7 +46,7 @@ export function TokenData(email, password, rememberMe) {
 				if (rememberMe) {
 					setValueToLocalStorage("token", response.data.body.token);
 				}
-				console.log(dispatch(loadTokenSuccess(response.data.body.token)));
+				//console.log(dispatch(loadTokenSuccess(response.data.body.token)));
 				sessionStorage.setItem("token", response.data.body.token);
 				const token = sessionStorage.getItem("token");
 				dispatch(UserData(token));
@@ -61,7 +61,7 @@ export function TokenData(email, password, rememberMe) {
 
 export function usersEdit(firstName, lastName) {
 	const token = sessionStorage.getItem("token");
-	console.log(token);
+	//console.log(token);
 	return (dispatch) => {
 		dispatch(userEditPending());
 		axios({
@@ -75,7 +75,7 @@ export function usersEdit(firstName, lastName) {
 		})
 			.then((response) => {
 				dispatch(userEditSuccess(response.data));
-				console.log(dispatch(userEditSuccess(response.data)));
+				//	console.log(dispatch(userEditSuccess(response.data)));
 			})
 			.catch((error) => {
 				dispatch(userEditRejected(error.message));

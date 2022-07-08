@@ -18,7 +18,7 @@ function User() {
 	const selectUser = (state) => state.datatUser.user.body;
 
 	const user = useSelector(selectUser);
-	console.log(user);
+	//console.log(user);
 	if (user === undefined) {
 		return <Navigate to="/" />;
 	}
