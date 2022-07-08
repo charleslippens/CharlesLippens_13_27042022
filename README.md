@@ -27,13 +27,13 @@ Clone the P13 repository CharlesLippens_13_27042022 (containing backend+frontend
 
 Inside the root folder, install the packages/dependencies with command on terminal: `yarn install`
 
-# Install dependencies
+## Install dependencies
 npm install
 
-# Start local dev server
+##  Start local dev server
 npm run dev:server
 
-# Populate database with two users
+##  Populate database with two users
 npm run populate-db
 
 ## 1.4 Install - Frontend React Application
