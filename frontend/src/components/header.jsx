@@ -27,7 +27,7 @@ function Header() {
 			</Link>
 			{login ? (
 				<div>
-					<Link to="/profil" className="main-nav-item">
+					<Link to="./profil" className="main-nav-item">
 						<i className="fa fa-user-circle"></i>
 						{user.body.firstName}
 					</Link>
